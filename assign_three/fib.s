@@ -5,19 +5,25 @@
 	 IMPORT printMsg4p
      ENTRY 
 __main  FUNCTION	
-		MOV R0, #0x20000000
-		MOV R1, #0x0
-		STR R1, [R0, #0x5]
-		MOV R2, #0x1
-	    STR R2, [R0, #0xA]
-		MOV R3, #0xF
+		MOV R4, #0x20000000
+		MOV R0, #0x0
+		BL printMsg
+		MOV R6, #0x0
+		STR R0, [R4, #0x5]
+		MOV R0, #0x1
+		BL printMsg
+		MOV R7, #0x1
+	    STR R0, [R4, #0xA]
+		MOV R8, #0xF
 LOOPA
-		ADD R4,R1,R2
-		STR R4, [R0,R3]
-		MOV R1,R2
-		MOV R2,R4
-		ADD R3,R3,#0x5
-		CMP R3,#0x64
+		ADD R0,R6,R7
+		MOV R5,R0
+		BL printMsg
+		STR R5, [R4,R8]
+		MOV R6,R7
+		MOV R7,R5
+		ADD R8,R8,#0x5
+		CMP R8,#0x64
 		IT LE
 		BLE LOOPA
 stop    B stop ; stop program
