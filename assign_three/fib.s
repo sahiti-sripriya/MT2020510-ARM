@@ -1,4 +1,4 @@
-          AREA     arreven, CODE, READONLY
+     AREA     arreven, CODE, READONLY
      EXPORT __main
      IMPORT printMsg
 	 IMPORT printMsg2p
